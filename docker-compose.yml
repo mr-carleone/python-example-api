@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   db:
-    image: postgres:13.2
+    image: postgres:15.10-bookworm
     container_name: postgres
     restart: always
     environment:

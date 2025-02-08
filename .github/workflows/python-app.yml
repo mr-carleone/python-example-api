@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9, 3.13]
+        python-version: [3.6, 3.7, 3.8, 3.9, 3.13.1]
 
     steps:
       - uses: actions/checkout@v2
@@ -34,7 +34,7 @@ jobs:
         uses: Harmon758/postgresql-action@v1.0.0
         with:
           # Version of PostgreSQL to use
-          postgresql version: 12.1-alpine
+          postgresql version: postgres:15.10-bookworm
           # POSTGRES_DB - name for the default database that is created
           postgresql db: hello_fastapi_dev
           # POSTGRES_USER - create the specified user with superuser power
