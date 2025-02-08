@@ -1,0 +1,25 @@
+# .github/workflows/docker-image.yml
+
+# This is a basic workflow to help you get started with Actions
+name: Docker Compose Actions Workflow
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build the Docker image
+        run: docker-compose build --no-cache --force-rm
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the stack
+        run: docker-compose up -d
